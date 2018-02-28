@@ -58,7 +58,7 @@ class FeatureContext implements Context {
 		$this->response = $client->post(
 			'http://localhost:8080/index.php/apps/deck/boards',
 			[
-				'form_params' => [
+				'body' => [
 					'name' => $name,
 				],
 				'auth' => [

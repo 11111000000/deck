@@ -178,12 +178,12 @@ trait BasicStructure {
 		];
 		if ($body instanceof \Behat\Gherkin\Node\TableNode) {
 			$fd = $body->getRowsHash();
-			$options['form_params'] = $fd;
+			$options['data'] = $fd;
 		}
 
 		// TODO: Fix this hack!
 		if ($verb === 'PUT' && $body === null) {
-			$options['form_params'] = [
+			$options['data'] = [
 				'foo' => 'bar',
 			];
 		}
@@ -215,7 +215,7 @@ trait BasicStructure {
 		}
 		if ($body instanceof \Behat\Gherkin\Node\TableNode) {
 			$fd = $body->getRowsHash();
-			$options['form_params'] = $fd;
+			$options['data'] = $fd;
 		}
 
 		try {
@@ -284,7 +284,7 @@ trait BasicStructure {
 		$response = $client->post(
 			$loginUrl,
 			[
-				'form_params' => [
+				'data' => [
 					'user' => $user,
 					'password' => $password,
 					'requesttoken' => $this->requestToken,
